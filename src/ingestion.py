@@ -19,6 +19,19 @@ from pydantic import ValidationError
 from src.models import BankTransaction, Invoice, PaymentGateway, SourceType
 
 UPI_REF_RE = re.compile(r"UPI/([^/]+)/(\d{12})")
+UPI_P2M_RE = re.compile(r"UPI/\w+/(\d{12})/(\S+)")
+
+
+def parse_upi_narration(raw_description: str) -> dict[str, str] | None:
+    if not raw_description:
+        return None
+    m_p2m = UPI_P2M_RE.search(raw_description)
+    if m_p2m:
+        return {"reference_number": m_p2m.group(1), "vpa": m_p2m.group(2)}
+    m_ref = UPI_REF_RE.search(raw_description)
+    if m_ref:
+        return {"reference_number": m_ref.group(2), "vpa": m_ref.group(1)}
+    return None
 
 
 class IngestionResult:
@@ -46,6 +59,49 @@ def _normalize_name(name: str) -> str:
 def _record_hash(source: str, amount: str, date: str, name: str) -> str:
     key = f"{source}|{amount}|{date}|{_normalize_name(name)}"
     return hashlib.sha256(key.encode()).hexdigest()
+
+
+def deduplicate(records: list[dict]) -> tuple[list[dict], list[dict]]:
+    seen_hashes: set[str] = set()
+    unique: list[dict] = []
+    dropped: list[dict] = []
+    for r in records:
+        amt = r.get("amount")
+        d = r.get("date") or r.get("txn_date") or r.get("invoice_date")
+        src = r.get("source") or r.get("source_tag") or "bank"
+        name = r.get("normalized_merchant") or r.get("normalized_vendor") or r.get("vendor_name") or r.get("raw_description") or ""
+        if amt is None or d is None or not isinstance(d, (str, type(None))) and not hasattr(d, "isoformat"):
+            dropped.append(r)
+            continue
+        date_str = d.isoformat() if hasattr(d, "isoformat") else str(d)
+        h = _record_hash(str(src), str(amt), date_str, str(name))
+        if h in seen_hashes:
+            dropped.append(r)
+        else:
+            seen_hashes.add(h)
+            unique.append(r)
+    return unique, dropped
+
+
+def normalize_records(records: list[dict]) -> list[dict]:
+    normalized = []
+    for r in records:
+        rec = dict(r)
+        amt = rec.get("amount")
+        if amt is None:
+            continue
+        try:
+            from decimal import Decimal
+            rec["amount"] = Decimal(str(amt))
+        except Exception:
+            continue
+        
+        vendor = rec.get("vendor_name")
+        if vendor:
+            rec["normalized_vendor"] = _normalize_name(vendor)
+            rec["normalized_merchant"] = rec["normalized_vendor"]
+        normalized.append(rec)
+    return normalized
 
 
 def _load_json(path: Path) -> list[dict]:

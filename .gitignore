@@ -1,6 +1,30 @@
+# Python / Virtual Environment
 venv/
+.venv/
 __pycache__/
 *.pyc
-.env
+*.pyo
+*.pyd
 .pytest_cache/
 *.egg-info/
+.coverage
+htmlcov/
+
+# Environment Variables & Secrets
+.env
+*.env.local
+
+# macOS system files
+.DS_Store
+*.DS_Store
+._*
+
+# Generated Output / Binaries (keep reports directory structure clean)
+*.zip
+*.tar.gz
+reports/*.pdf
+reports/*.json
+
+# Internal Context / Notes
+PROJECT_CONTEXT.md
+

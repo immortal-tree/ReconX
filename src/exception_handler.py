@@ -62,6 +62,72 @@ TEMPLATE_EXPLANATIONS = {
 }
 
 
+def classify_exception(record: dict, context: dict | None = None) -> str:
+    # Check explicitly assigned type or default to MISSING_COUNTERPART
+    exc_type = record.get("exception_type")
+    if exc_type:
+        return str(exc_type)
+    reason = record.get("reason_code")
+    if reason == "DUPLICATE_RECORD":
+        return ExceptionType.DUPLICATE.value
+    if reason == "AMOUNT_DELTA_EXCEEDS_TOLERANCE":
+        return ExceptionType.AMOUNT_MISMATCH.value
+    if reason == "NO_LLM_RESOLUTION_AVAILABLE":
+        return ExceptionType.AMBIGUOUS.value
+    return ExceptionType.MISSING_COUNTERPART.value
+
+
+def generate_explanation(record: dict, exception_type: str, candidate: dict | None = None, llm_client: Any = None) -> dict:
+    rec_id = record.get("id") or record.get("txn_id") or record.get("invoice_id") or record.get("payment_id") or "REC"
+    src = record.get("source") or record.get("source_tag") or "bank"
+    amt = record.get("amount") or "0.00"
+    dt = str(record.get("date") or record.get("txn_date") or record.get("invoice_date") or "")
+
+    if llm_client and getattr(llm_client, "available", False):
+        result = llm_client.call(
+            SYSTEM_PROMPT_EXCEPTION,
+            USER_PROMPT_EXCEPTION.format(
+                record_json={"id": rec_id, "source": str(src), "amount": str(amt), "date": dt},
+                exception_type=exception_type,
+                candidate_json={"id": candidate.get("id")} if candidate else "none",
+            ),
+        )
+        if result and not result.get("parse_error"):
+            return {
+                "explanation": result.get("explanation", ""),
+                "suggested_action": result.get("suggested_action", ""),
+            }
+
+    try:
+        etype_enum = ExceptionType(exception_type)
+    except ValueError:
+        etype_enum = ExceptionType.MISSING_COUNTERPART
+
+    tmpl_expl, tmpl_action = TEMPLATE_EXPLANATIONS[etype_enum]
+    return {
+        "explanation": tmpl_expl.format(record_id=rec_id, source=src, amount=amt, date=dt),
+        "suggested_action": tmpl_action,
+    }
+
+
+def handle_unresolved_batch(unresolved: list[dict], llm_client: Any = None) -> list[dict]:
+    exceptions = []
+    for rec in unresolved:
+        etype = classify_exception(rec)
+        expl_data = generate_explanation(rec, etype, llm_client=llm_client)
+        rec_id = rec.get("id") or rec.get("txn_id") or rec.get("invoice_id") or rec.get("payment_id") or "REC"
+        src = rec.get("source") or rec.get("source_tag") or "bank"
+        exceptions.append({
+            "record_id": rec_id,
+            "source": src,
+            "exception_type": etype,
+            "reason_code": rec.get("reason_code", "NO_CANDIDATE_FOUND"),
+            "explanation": expl_data["explanation"],
+            "suggested_action": expl_data["suggested_action"],
+        })
+    return exceptions
+
+
 class ExceptionHandler:
     def __init__(self, ai_matcher: AIMatcher, llm: Optional[LLMClient] = None):
         self.matcher = ai_matcher.matcher
@@ -95,57 +161,67 @@ class ExceptionHandler:
             record_id=record_id, source=source, exception_type=exc_type,
             reason_code=reason_code, explanation=explanation,
             suggested_action=suggested_action, closest_candidate_id=candidate_id,
+            amount=str(amount), date=date_str,
         )
 
     def classify_all(self) -> list[Exception_]:
-        # Duplicates removed during ingestion
-        for dup in self.matcher.bank if False else []:
-            pass  # duplicates are handled at ingestion; surfaced separately below
+        items_to_explain = []
 
-        # Remaining unmatched bank transactions -> MISSING_COUNTERPART (unless
-        # they were an amount-mismatch candidate, detected via nearest invoice)
+        # Bank
         for b in self.matcher.unmatched_bank():
             nearest = self._nearest_invoice_by_name_date(b)
             if nearest and abs(b.amount - nearest.amount) <= Decimal("500.00"):
-                self.exceptions.append(self._explain(
+                items_to_explain.append((
                     b.txn_id, SourceType.BANK, ExceptionType.AMOUNT_MISMATCH,
-                    b.amount, b.date.isoformat(), reason_code="AMOUNT_DELTA_EXCEEDS_TOLERANCE",
-                    candidate_id=nearest.invoice_id,
+                    b.amount, b.date.isoformat(), "AMOUNT_DELTA_EXCEEDS_TOLERANCE",
+                    nearest.invoice_id,
                 ))
             else:
-                self.exceptions.append(self._explain(
+                items_to_explain.append((
                     b.txn_id, SourceType.BANK, ExceptionType.MISSING_COUNTERPART,
-                    b.amount, b.date.isoformat(), reason_code="NO_CANDIDATE_FOUND",
+                    b.amount, b.date.isoformat(), "NO_CANDIDATE_FOUND",
+                    None,
                 ))
 
-        # Remaining unmatched invoices -> AMBIGUOUS if flagged by AI matcher,
-        # else MISSING_COUNTERPART
+        # Invoices
         ambiguous_ids = set(self.ai_matcher.ambiguous_flagged)
         for inv in self.matcher.unmatched_invoices():
             nearest = self._nearest_bank_by_name_date(inv)
             if nearest and abs(inv.amount - nearest.amount) <= Decimal("500.00"):
-                self.exceptions.append(self._explain(
+                items_to_explain.append((
                     inv.invoice_id, SourceType.INVOICE, ExceptionType.AMOUNT_MISMATCH,
-                    inv.amount, inv.date.isoformat(), reason_code="AMOUNT_DELTA_EXCEEDS_TOLERANCE",
-                    candidate_id=nearest.txn_id,
+                    inv.amount, inv.date.isoformat(), "AMOUNT_DELTA_EXCEEDS_TOLERANCE",
+                    nearest.txn_id,
                 ))
             elif inv.invoice_id in ambiguous_ids:
-                self.exceptions.append(self._explain(
+                items_to_explain.append((
                     inv.invoice_id, SourceType.INVOICE, ExceptionType.AMBIGUOUS,
-                    inv.amount, inv.date.isoformat(), reason_code="NO_LLM_RESOLUTION_AVAILABLE",
+                    inv.amount, inv.date.isoformat(), "NO_LLM_RESOLUTION_AVAILABLE",
+                    None,
                 ))
             else:
-                self.exceptions.append(self._explain(
+                items_to_explain.append((
                     inv.invoice_id, SourceType.INVOICE, ExceptionType.MISSING_COUNTERPART,
-                    inv.amount, inv.date.isoformat(), reason_code="NO_CANDIDATE_FOUND",
+                    inv.amount, inv.date.isoformat(), "NO_CANDIDATE_FOUND",
+                    None,
                 ))
 
-        # Remaining unmatched gateway records
+        # Gateway
         for g in self.matcher.unmatched_gateway():
-            self.exceptions.append(self._explain(
+            items_to_explain.append((
                 g.payment_id, SourceType.GATEWAY, ExceptionType.MISSING_COUNTERPART,
-                g.amount, g.date.isoformat(), reason_code="NO_CANDIDATE_FOUND",
+                g.amount, g.date.isoformat(), "NO_CANDIDATE_FOUND",
+                None,
             ))
+
+        if self.llm and getattr(self.llm, "available", False):
+            from concurrent.futures import ThreadPoolExecutor
+            def _worker(item):
+                return self._explain(*item)
+            with ThreadPoolExecutor(max_workers=min(5, len(items_to_explain) or 1)) as executor:
+                self.exceptions = list(executor.map(_worker, items_to_explain))
+        else:
+            self.exceptions = [self._explain(*item) for item in items_to_explain]
 
         return self.exceptions
 

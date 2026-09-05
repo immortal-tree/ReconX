@@ -165,7 +165,8 @@ class DeterministicMatcher:
                 amt_close = abs(b.amount - inv.amount) <= Decimal("2.00")
                 date_close = abs((b.date - inv.date).days) <= 2
                 name_key = (inv.normalized_merchant or "")[:4]
-                name_match = bool(name_key) and name_key in (b.normalized_merchant or "")
+                b_name = ((b.normalized_merchant or "") + " " + (b.raw_description or "")).lower()
+                name_match = bool(name_key) and name_key in b_name
                 if amt_close and date_close and name_match:
                     self._add_match(
                         MatchTier.COMPOSITE_KEY, 0.85,
@@ -193,6 +194,63 @@ class DeterministicMatcher:
             "unmatched_invoices": len(self.unmatched_invoices()),
             "unmatched_gateway": len(self.unmatched_gateway()),
         }
+
+
+def run_deterministic_pipeline(records: dict[str, list[dict | Any]]) -> tuple[list[dict], list[dict]]:
+    from src.ai_matcher import STATIC_UPI_ALIASES
+    ing = IngestionResult()
+    for b in records.get("bank", []):
+        rec = dict(b) if isinstance(b, dict) else b.model_dump()
+        if "txn_date" in rec and "date" not in rec:
+            rec["date"] = rec.pop("txn_date")
+        if "direction" in rec and "debit_credit" not in rec:
+            rec["debit_credit"] = rec.pop("direction")
+        if not rec.get("normalized_merchant") and rec.get("raw_description"):
+            desc_upper = rec["raw_description"].upper()
+            for code, name in STATIC_UPI_ALIASES.items():
+                if code in desc_upper:
+                    rec["normalized_merchant"] = name.lower()
+                    break
+            if not rec.get("normalized_merchant"):
+                rec["normalized_merchant"] = rec["raw_description"].lower()
+        txn = BankTransaction(**rec) if isinstance(rec, dict) else rec
+        ing.bank.append(txn)
+
+    for i in records.get("invoice", []) or records.get("invoices", []):
+        rec = dict(i) if isinstance(i, dict) else i.model_dump()
+        if "invoice_date" in rec and "date" not in rec:
+            rec["date"] = rec.pop("invoice_date")
+        inv = Invoice(**rec) if isinstance(rec, dict) else rec
+        ing.invoices.append(inv)
+
+    for g in records.get("gateway", []):
+        rec = dict(g) if isinstance(g, dict) else g.model_dump()
+        if "txn_date" in rec and "date" not in rec:
+            rec["date"] = rec.pop("txn_date")
+        if "pg_txn_id" in rec and "payment_id" not in rec:
+            rec["payment_id"] = rec.pop("pg_txn_id")
+        if "merchant_id" in rec and "vpa_or_method" not in rec:
+            rec["vpa_or_method"] = rec.pop("merchant_id")
+        gw = PaymentGateway(**rec) if isinstance(rec, dict) else rec
+        ing.gateway.append(gw)
+
+    matcher = DeterministicMatcher(ing)
+    matcher.run_all()
+
+    matched_dicts = []
+    for m in matcher.matches:
+        d = m.model_dump()
+        d["match_method"] = m.tier.value
+        d["source_a_id"] = m.bank_txn_ids[0] if m.bank_txn_ids else (m.invoice_ids[0] if m.invoice_ids else None)
+        d["source_b_id"] = m.invoice_ids[0] if m.invoice_ids else (m.gateway_payment_ids[0] if m.gateway_payment_ids else None)
+        matched_dicts.append(d)
+
+    unmatched_dicts = (
+        [b.model_dump() for b in matcher.unmatched_bank()] +
+        [i.model_dump() for i in matcher.unmatched_invoices()] +
+        [g.model_dump() for g in matcher.unmatched_gateway()]
+    )
+    return matched_dicts, unmatched_dicts
 
 
 if __name__ == "__main__":

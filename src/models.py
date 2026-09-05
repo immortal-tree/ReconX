@@ -130,3 +130,5 @@ class Exception_(BaseModel):
     explanation: Optional[str] = None
     suggested_action: Optional[str] = None
     closest_candidate_id: Optional[str] = None
+    amount: Optional[str] = None
+    date: Optional[str] = None

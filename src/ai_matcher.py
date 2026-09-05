@@ -67,6 +67,130 @@ STATIC_UPI_ALIASES = {
 }
 
 
+def fuzzy_match_vendor(a: str, b: str) -> float:
+    return float(fuzz.token_sort_ratio((a or "").lower().strip(), (b or "").lower().strip()))
+
+
+def find_best_vendor_match(vendor: str, candidates: list[str], threshold: int = 75) -> tuple[str | None, float]:
+    if not candidates:
+        return None, 0.0
+    best = process.extractOne((vendor or "").lower().strip(), candidates, scorer=fuzz.token_sort_ratio)
+    if best is None:
+        return None, 0.0
+    matched_name, score, _ = best
+    if score < threshold:
+        return None, float(score)
+    return matched_name, float(score)
+
+
+def resolve_upi_id(upi_id: str, raw_description: str, llm_client: Any = None) -> dict:
+    if llm_client and getattr(llm_client, "available", False):
+        result = llm_client.call(
+            SYSTEM_PROMPT_UPI,
+            USER_PROMPT_UPI.format(upi_id=upi_id, raw_description=raw_description),
+        )
+        if result and not result.get("parse_error"):
+            return result
+    code = (upi_id or "").upper()
+    name = STATIC_UPI_ALIASES.get(code, "Unknown")
+    return {"business_name": name, "confidence": 0.8 if name != "Unknown" else 0.0, "reasoning": "static fallback"}
+
+
+def resolve_all_upi_ids(records: list[dict | Any], llm_client: Any = None) -> dict[str, str]:
+    """
+    Deduplicates UPI IDs across records, resolves each UNIQUE UPI ID at most ONCE
+    via LLM/static lookup with thread-pool concurrency, and returns {upi_code: business_name}.
+    """
+    unique_items: dict[str, str] = {}
+    for r in records:
+        if isinstance(r, dict):
+            code = r.get("upi_id") or r.get("normalized_merchant") or ""
+            desc = r.get("raw_description") or ""
+        else:
+            code = getattr(r, "normalized_merchant", "") or ""
+            desc = getattr(r, "raw_description", "") or ""
+
+        code_upper = str(code).upper().strip()
+        if code_upper and code_upper not in unique_items:
+            unique_items[code_upper] = desc
+
+    resolved_map: dict[str, str] = {}
+    to_resolve: list[tuple[str, str]] = []
+
+    for code, desc in unique_items.items():
+        if code in STATIC_UPI_ALIASES:
+            resolved_map[code] = STATIC_UPI_ALIASES[code]
+        else:
+            to_resolve.append((code, desc))
+
+    if not to_resolve:
+        return resolved_map
+
+    if llm_client and getattr(llm_client, "available", False):
+        from concurrent.futures import ThreadPoolExecutor
+
+        def _call_llm_single(item: tuple[str, str]) -> tuple[str, str]:
+            code, desc = item
+            res = llm_client.call(
+                SYSTEM_PROMPT_UPI,
+                USER_PROMPT_UPI.format(upi_id=code, raw_description=desc),
+            )
+            if res and not res.get("parse_error") and res.get("business_name"):
+                return code, res["business_name"]
+            return code, STATIC_UPI_ALIASES.get(code, code)
+
+        with ThreadPoolExecutor(max_workers=min(5, len(to_resolve))) as executor:
+            results = list(executor.map(_call_llm_single, to_resolve))
+
+        for code, name in results:
+            resolved_map[code] = name
+    else:
+        for code, desc in to_resolve:
+            resolved_map[code] = STATIC_UPI_ALIASES.get(code, code)
+
+    return resolved_map
+
+
+def detect_split_payment(invoice: dict, candidates: list[dict], llm_client: Any = None) -> dict:
+    if llm_client and getattr(llm_client, "available", False):
+        candidates_json = [
+            {"txn_id": c.get("txn_id"), "amount": str(c.get("amount")), "date": str(c.get("date", ""))}
+            for c in candidates
+        ]
+        result = llm_client.call(
+            SYSTEM_PROMPT_SPLIT,
+            USER_PROMPT_SPLIT.format(
+                invoice_id=invoice.get("invoice_id", "INV"), amount=invoice.get("amount", 0),
+                vendor=invoice.get("vendor_name", ""), date=str(invoice.get("date", "")),
+                candidates_json=candidates_json,
+            ),
+        )
+        if result and not result.get("parse_error"):
+            return result
+    inv_amt = Decimal(str(invoice.get("amount", 0)))
+    comb_amt = sum(Decimal(str(c.get("amount", 0))) for c in candidates)
+    delta = abs(comb_amt - inv_amt)
+    is_split = delta <= Decimal("5.00")
+    return {
+        "is_split": is_split,
+        "matching_txns": [c.get("txn_id") for c in candidates] if is_split else [],
+        "combined_amount": float(comb_amt),
+        "delta": float(delta),
+        "confidence": 0.88 if is_split else 0.0,
+        "reasoning": "Deterministic combination sum",
+    }
+
+
+def score_confidence(amount_closeness: float, date_closeness: float, name_similarity: float, id_overlap: float) -> float:
+    conf = (
+        0.4 * amount_closeness
+        + 0.2 * date_closeness
+        + 0.3 * name_similarity
+        + 0.1 * id_overlap
+    )
+    return round(min(max(conf, 0.0), 1.0), 6)
+
+
 class AIMatcher:
     def __init__(self, matcher: DeterministicMatcher, llm: Optional[LLMClient] = None):
         self.matcher = matcher
@@ -78,31 +202,22 @@ class AIMatcher:
 
     # ------------------------------------------------------------------
     def resolve_cryptic_upi(self):
-        """Resolve cryptic UPI codes in unmatched bank descriptions, batching
-        up to 5 per LLM call, then re-run fuzzy matching with resolved names."""
-        unresolved = [
+        """Resolve cryptic UPI codes across unmatched bank descriptions by batching
+        unique UPI IDs once, then re-run fuzzy matching with resolved names."""
+        unmatched = [
             b for b in self.matcher.unmatched_bank()
-            if b.normalized_merchant and b.normalized_merchant.upper() not in
-            {v.lower() for v in STATIC_UPI_ALIASES.values()}
+            if b.normalized_merchant
         ]
-        batch_size = 5
-        for i in range(0, len(unresolved), batch_size):
-            batch = unresolved[i:i + batch_size]
-            for b in batch:
-                code = (b.normalized_merchant or "").upper()
-                resolved_name = None
-                if self.llm.available:
-                    result = self.llm.call(
-                        SYSTEM_PROMPT_UPI,
-                        USER_PROMPT_UPI.format(upi_id=code, raw_description=b.raw_description),
-                    )
-                    if result and not result.get("parse_error"):
-                        resolved_name = result.get("business_name")
-                if not resolved_name:
-                    resolved_name = STATIC_UPI_ALIASES.get(code)
-                if resolved_name:
-                    b.normalized_merchant = resolved_name.lower()
-                    self.upi_resolutions += 1
+        if not unmatched:
+            return
+
+        resolved_cache = resolve_all_upi_ids(unmatched, self.llm)
+
+        for b in unmatched:
+            code = (b.normalized_merchant or "").upper().strip()
+            if code in resolved_cache:
+                b.normalized_merchant = resolved_cache[code].lower()
+                self.upi_resolutions += 1
 
         # re-run fuzzy matching now that names are resolved
         self._fuzzy_name_match()
