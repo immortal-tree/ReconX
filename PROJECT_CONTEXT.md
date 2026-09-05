@@ -20,7 +20,7 @@
 - **Recall:** `93.15%` (0.9315)
 - **F1 Score:** `0.9645` (Target: ≥ 0.85)
 - **Exception Surfacing Rate:** `100.0%` (0 silent drops, 30 exceptions classified)
-- **Live LLM Integration:** `GROQ_API_KEY` configured (`llm_available = True`)
+- **Live LLM Integration:** `GROQ_API_KEY` active (`llm_available = True`, `llm_calls = 57` per batch)
 - **LLM Model:** `openai/gpt-oss-120b` via Groq SDK (`src/llm_client.py`)
 
 ---
