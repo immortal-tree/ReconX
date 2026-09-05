@@ -1,0 +1,576 @@
+[
+  {
+    "invoice_id": "INV0077",
+    "date": "2026-01-20",
+    "amount": "6546.79",
+    "vendor_name": "Prime Stationery",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0065",
+    "date": "2026-02-06",
+    "amount": "23022.62",
+    "vendor_name": "Swiggy",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0020",
+    "date": "2026-01-09",
+    "amount": "7315.01",
+    "vendor_name": "Om Sai Textiles",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0027",
+    "date": "2026-02-05",
+    "amount": "26549.89",
+    "vendor_name": "Om Sai Textiles",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0042",
+    "date": "2026-01-05",
+    "amount": "13676.7",
+    "vendor_name": "Kumar Enterprises",
+    "status": "partial"
+  },
+  {
+    "invoice_id": "INV0067",
+    "date": "2026-02-26",
+    "amount": "44067.04",
+    "vendor_name": "Global Supplies Co",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0022",
+    "date": "2026-01-26",
+    "amount": "44911.58",
+    "vendor_name": "Prime Stationery",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0013",
+    "date": "2026-02-12",
+    "amount": "17892.48",
+    "vendor_name": "Global Supplies Co",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0002",
+    "date": "2026-02-13",
+    "amount": "36876.27",
+    "vendor_name": "BigBasket",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0069",
+    "date": "2026-02-12",
+    "amount": "15109.06",
+    "vendor_name": "City Fresh Mart",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0024",
+    "date": "2026-01-04",
+    "amount": "4727.29",
+    "vendor_name": "Vertex Solutions",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0060",
+    "date": "2026-01-16",
+    "amount": "33825.59",
+    "vendor_name": "Amazon",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0007",
+    "date": "2026-01-14",
+    "amount": "14037.99",
+    "vendor_name": "Kumar Enterprises",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0055",
+    "date": "2026-02-16",
+    "amount": "34890.26",
+    "vendor_name": "Prime Stationery",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0035",
+    "date": "2026-01-16",
+    "amount": "794.41",
+    "vendor_name": "BigBasket",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0005",
+    "date": "2026-01-29",
+    "amount": "21092.09",
+    "vendor_name": "City Fresh Mart",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0023",
+    "date": "2026-01-09",
+    "amount": "49866.82",
+    "vendor_name": "Ola",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0066",
+    "date": "2026-02-02",
+    "amount": "26974.19",
+    "vendor_name": "Amazon",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0037",
+    "date": "2026-01-09",
+    "amount": "2320.92",
+    "vendor_name": "Uber",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0049",
+    "date": "2026-01-05",
+    "amount": "43749.4",
+    "vendor_name": "Ola",
+    "status": "unpaid"
+  },
+  {
+    "invoice_id": "INV0080",
+    "date": "2026-01-22",
+    "amount": "36880.91",
+    "vendor_name": "Blinkit",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0074",
+    "date": "2026-01-09",
+    "amount": "16811.12",
+    "vendor_name": "Swiggy",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0003",
+    "date": "2026-01-02",
+    "amount": "21211.71",
+    "vendor_name": "Apex Consultancy",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0075",
+    "date": "2026-01-28",
+    "amount": "27673.68",
+    "vendor_name": "Om Sai Textiles",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0063",
+    "date": "2026-01-26",
+    "amount": "12086.56",
+    "vendor_name": "Kumar Enterprises",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0073",
+    "date": "2026-02-23",
+    "amount": "31787.37",
+    "vendor_name": "Amazon",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0044",
+    "date": "2026-02-10",
+    "amount": "7484.76",
+    "vendor_name": "Sharma Traders",
+    "status": "partial"
+  },
+  {
+    "invoice_id": "INV0041",
+    "date": "2026-02-03",
+    "amount": "20333.5",
+    "vendor_name": "Om Sai Textiles",
+    "status": "partial"
+  },
+  {
+    "invoice_id": "INV0047",
+    "date": "2026-02-04",
+    "amount": "9741.19",
+    "vendor_name": "Ola",
+    "status": "unpaid"
+  },
+  {
+    "invoice_id": "INV0058",
+    "date": "2026-01-31",
+    "amount": "2697.09",
+    "vendor_name": "Zomato",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0071",
+    "date": "2026-02-15",
+    "amount": "30320.53",
+    "vendor_name": "Sharma Traders",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0018",
+    "date": "2026-01-14",
+    "amount": "13533.5",
+    "vendor_name": "Metro Logistics",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0053",
+    "date": "2026-02-27",
+    "amount": "43259.59",
+    "vendor_name": "Dunzo",
+    "status": "unpaid"
+  },
+  {
+    "invoice_id": "INV0017",
+    "date": "2026-02-21",
+    "amount": "41125.77",
+    "vendor_name": "Ola",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0038",
+    "date": "2026-02-03",
+    "amount": "578.87",
+    "vendor_name": "Uber",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0031",
+    "date": "2026-02-02",
+    "amount": "38145.72",
+    "vendor_name": "Ganga Hardware",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0011",
+    "date": "2026-01-06",
+    "amount": "38698.8",
+    "vendor_name": "Ola",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0048",
+    "date": "2026-01-18",
+    "amount": "21209.71",
+    "vendor_name": "BigBasket",
+    "status": "unpaid"
+  },
+  {
+    "invoice_id": "INV0046",
+    "date": "2026-01-27",
+    "amount": "17844.02",
+    "vendor_name": "Prime Stationery",
+    "status": "unpaid"
+  },
+  {
+    "invoice_id": "INV0062",
+    "date": "2026-02-07",
+    "amount": "21077.4",
+    "vendor_name": "Amazon",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0033",
+    "date": "2026-01-11",
+    "amount": "18820.91",
+    "vendor_name": "BigBasket",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0082",
+    "date": "2026-01-30",
+    "amount": "40866.01",
+    "vendor_name": "Dunzo",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0081",
+    "date": "2026-01-07",
+    "amount": "39411.25",
+    "vendor_name": "Blinkit",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0021",
+    "date": "2026-02-17",
+    "amount": "27041.07",
+    "vendor_name": "City Fresh Mart",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0039",
+    "date": "2026-03-01",
+    "amount": "2896.65",
+    "vendor_name": "Dunzo",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0072",
+    "date": "2026-01-17",
+    "amount": "25369.37",
+    "vendor_name": "Uber",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0057",
+    "date": "2026-01-04",
+    "amount": "36839.71",
+    "vendor_name": "Apex Consultancy",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0043",
+    "date": "2026-01-15",
+    "amount": "25590.81",
+    "vendor_name": "Sharma Traders",
+    "status": "partial"
+  },
+  {
+    "invoice_id": "INV0051",
+    "date": "2026-03-01",
+    "amount": "48456.01",
+    "vendor_name": "Swiggy",
+    "status": "unpaid"
+  },
+  {
+    "invoice_id": "INV0009",
+    "date": "2026-02-16",
+    "amount": "40394.99",
+    "vendor_name": "Uber",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0056",
+    "date": "2026-01-14",
+    "amount": "9656.91",
+    "vendor_name": "BigBasket",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0008",
+    "date": "2026-01-23",
+    "amount": "19120.38",
+    "vendor_name": "Amazon",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0016",
+    "date": "2026-02-19",
+    "amount": "42174.03",
+    "vendor_name": "Kumar Enterprises",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0036",
+    "date": "2026-02-01",
+    "amount": "348.4",
+    "vendor_name": "Zomato",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0078",
+    "date": "2026-01-23",
+    "amount": "33413.28",
+    "vendor_name": "Ola",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0030",
+    "date": "2026-02-16",
+    "amount": "361.62",
+    "vendor_name": "Om Sai Textiles",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0034",
+    "date": "2026-01-08",
+    "amount": "1516.96",
+    "vendor_name": "Blinkit",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0045",
+    "date": "2026-01-16",
+    "amount": "28895.34",
+    "vendor_name": "Apex Consultancy",
+    "status": "unpaid"
+  },
+  {
+    "invoice_id": "INV0068",
+    "date": "2026-02-23",
+    "amount": "8055.79",
+    "vendor_name": "Sharma Traders",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0012",
+    "date": "2026-01-30",
+    "amount": "19130.29",
+    "vendor_name": "Flipkart",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0015",
+    "date": "2026-03-01",
+    "amount": "13643.4",
+    "vendor_name": "Metro Logistics",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0028",
+    "date": "2026-02-04",
+    "amount": "34149.18",
+    "vendor_name": "Flipkart",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0070",
+    "date": "2026-01-07",
+    "amount": "5948.35",
+    "vendor_name": "Uber",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0014",
+    "date": "2026-01-16",
+    "amount": "26800.17",
+    "vendor_name": "Blinkit",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0001",
+    "date": "2026-01-18",
+    "amount": "1445.54",
+    "vendor_name": "Flipkart",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0079",
+    "date": "2026-02-21",
+    "amount": "48815.06",
+    "vendor_name": "Blinkit",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0076",
+    "date": "2026-02-26",
+    "amount": "3947.14",
+    "vendor_name": "Flipkart",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0052",
+    "date": "2026-02-01",
+    "amount": "8482.29",
+    "vendor_name": "Ola",
+    "status": "unpaid"
+  },
+  {
+    "invoice_id": "INV0064",
+    "date": "2026-02-18",
+    "amount": "15945.62",
+    "vendor_name": "Om Sai Textiles",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0050",
+    "date": "2026-02-11",
+    "amount": "5075.85",
+    "vendor_name": "City Fresh Mart",
+    "status": "unpaid"
+  },
+  {
+    "invoice_id": "INV0025",
+    "date": "2026-02-20",
+    "amount": "31446.81",
+    "vendor_name": "BigBasket",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0054",
+    "date": "2026-01-25",
+    "amount": "19072.86",
+    "vendor_name": "Blinkit",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0059",
+    "date": "2026-01-12",
+    "amount": "4189.55",
+    "vendor_name": "Ganga Hardware",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0010",
+    "date": "2026-02-23",
+    "amount": "27691.62",
+    "vendor_name": "Amazon",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0061",
+    "date": "2026-02-08",
+    "amount": "12461.52",
+    "vendor_name": "Apex Consultancy",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0032",
+    "date": "2026-02-02",
+    "amount": "42115.13",
+    "vendor_name": "Sharma Traders",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0006",
+    "date": "2026-01-11",
+    "amount": "37988.61",
+    "vendor_name": "Swiggy",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0004",
+    "date": "2026-01-02",
+    "amount": "25366.69",
+    "vendor_name": "Ola",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0019",
+    "date": "2026-02-01",
+    "amount": "10788.8",
+    "vendor_name": "Kumar Enterprises",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0026",
+    "date": "2026-01-25",
+    "amount": "29901.17",
+    "vendor_name": "Prime Stationery",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0029",
+    "date": "2026-01-28",
+    "amount": "5755.3",
+    "vendor_name": "Kumar Enterprises",
+    "status": "paid"
+  },
+  {
+    "invoice_id": "INV0040",
+    "date": "2026-01-26",
+    "amount": "2167.55",
+    "vendor_name": "Flipkart",
+    "status": "paid"
+  }
+]

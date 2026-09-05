@@ -1,0 +1,762 @@
+[
+  {
+    "txn_id": "TXN0002",
+    "date": "2026-02-13",
+    "amount": "36876.27",
+    "raw_description": "UPI/REF3342331444/BIGBASKET",
+    "reference_number": "REF3342331444",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0012",
+    "date": "2026-01-30",
+    "amount": "19130.29",
+    "raw_description": "UPI/REF2566942273/FLIPKART",
+    "reference_number": "REF2566942273",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0092",
+    "date": "2026-01-07",
+    "amount": "39411.25",
+    "raw_description": "UPI/REF3021598245/BLINKIT",
+    "reference_number": "REF3021598245",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0054",
+    "date": "2026-01-16",
+    "amount": "3728.7",
+    "raw_description": "UPI/KUMARENTERPRISES/DUP",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0064",
+    "date": "2026-02-27",
+    "amount": "43179.59",
+    "raw_description": "UPI/DUNZO/PART",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0037",
+    "date": "2026-01-09",
+    "amount": "2320.92",
+    "raw_description": "UPI/UBER@AXIS/622524651020",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0032",
+    "date": "2026-02-01",
+    "amount": "42116.63",
+    "raw_description": "IMPS/SHRMTR/PYMT",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0062",
+    "date": "2026-03-01",
+    "amount": "48021.01",
+    "raw_description": "UPI/SWIGGY/PART",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0074",
+    "date": "2026-01-26",
+    "amount": "12086.56",
+    "raw_description": "UPI/REF8067372072/KUMARENTERPRISES",
+    "reference_number": "REF8067372072",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0058",
+    "date": "2026-03-01",
+    "amount": "6789.13",
+    "raw_description": "UPI/CITYFRESHMART/DUP",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0077",
+    "date": "2026-02-02",
+    "amount": "26974.19",
+    "raw_description": "UPI/REF2139027119/AMAZON",
+    "reference_number": "REF2139027119",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0016",
+    "date": "2026-02-18",
+    "amount": "42174.03",
+    "raw_description": "NEFT/KUMARENTERPRISES/SETTLEMENT",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0063",
+    "date": "2026-02-01",
+    "amount": "8186.29",
+    "raw_description": "UPI/OLA/PART",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0065",
+    "date": "2026-01-25",
+    "amount": "19072.86",
+    "raw_description": "UPI/REF7249213370/BLINKIT",
+    "reference_number": "REF7249213370",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0042",
+    "date": "2026-02-04",
+    "amount": "4518.56",
+    "raw_description": "NEFT/OMSAITEXTILES/PART2",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0011",
+    "date": "2026-01-06",
+    "amount": "38698.8",
+    "raw_description": "UPI/REF4673561638/OLA",
+    "reference_number": "REF4673561638",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0070",
+    "date": "2026-01-12",
+    "amount": "4189.55",
+    "raw_description": "UPI/REF9884231465/GANGAHARDWARE",
+    "reference_number": "REF9884231465",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0007",
+    "date": "2026-01-14",
+    "amount": "14037.99",
+    "raw_description": "UPI/REF2445662585/KUMARENTERPRISES",
+    "reference_number": "REF2445662585",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0084",
+    "date": "2026-02-23",
+    "amount": "31787.37",
+    "raw_description": "UPI/REF2188332531/AMAZON",
+    "reference_number": "REF2188332531",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0057",
+    "date": "2026-03-01",
+    "amount": "6789.13",
+    "raw_description": "UPI/CITYFRESHMART/DUP",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0059",
+    "date": "2026-02-11",
+    "amount": "33733.55",
+    "raw_description": "UPI/ZOMATO/LONE",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0018",
+    "date": "2026-01-15",
+    "amount": "13533.5",
+    "raw_description": "NEFT/METROLOGISTICS/SETTLEMENT",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0093",
+    "date": "2026-01-30",
+    "amount": "40866.01",
+    "raw_description": "UPI/REF6796738787/DUNZO",
+    "reference_number": "REF6796738787",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0010",
+    "date": "2026-02-23",
+    "amount": "27691.62",
+    "raw_description": "UPI/REF1298737106/AMAZON",
+    "reference_number": "REF1298737106",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0066",
+    "date": "2026-02-16",
+    "amount": "34890.26",
+    "raw_description": "UPI/REF8380507338/PRIMESTATIONERY",
+    "reference_number": "REF8380507338",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0039",
+    "date": "2026-03-01",
+    "amount": "2896.65",
+    "raw_description": "UPI/DUNZO@YESB/931244947195",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0006",
+    "date": "2026-01-11",
+    "amount": "37988.61",
+    "raw_description": "UPI/REF8293453178/SWIGGY",
+    "reference_number": "REF8293453178",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0049",
+    "date": "2026-02-10",
+    "amount": "3742.38",
+    "raw_description": "NEFT/SHARMATRADERS/PART1",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0031",
+    "date": "2026-01-31",
+    "amount": "38147.22",
+    "raw_description": "IMPS/GNGHRD/PYMT",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0055",
+    "date": "2026-01-14",
+    "amount": "33515.09",
+    "raw_description": "UPI/UBER/DUP",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0068",
+    "date": "2026-01-04",
+    "amount": "36839.71",
+    "raw_description": "UPI/REF8507497883/APEXCONSULTANCY",
+    "reference_number": "REF8507497883",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0038",
+    "date": "2026-02-03",
+    "amount": "578.87",
+    "raw_description": "UPI/UBER@AXIS/769467002266",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN_BAD1",
+    "date": "2026-01-05",
+    "amount": "-100.00",
+    "raw_description": "UPI/BADAMOUNT",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0085",
+    "date": "2026-01-09",
+    "amount": "16811.12",
+    "raw_description": "UPI/REF2125089309/SWIGGY",
+    "reference_number": "REF2125089309",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0019",
+    "date": "2026-02-01",
+    "amount": "10788.8",
+    "raw_description": "NEFT/KUMARENTERPRISES/SETTLEMENT",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0026",
+    "date": "2026-01-27",
+    "amount": "29902.67",
+    "raw_description": "IMPS/PRIMES/PYMT",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0061",
+    "date": "2026-02-11",
+    "amount": "4749.85",
+    "raw_description": "UPI/CITYFRESHMART/PART",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0027",
+    "date": "2026-02-03",
+    "amount": "26551.39",
+    "raw_description": "IMPS/OMSITE/PYMT",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0079",
+    "date": "2026-02-23",
+    "amount": "8055.79",
+    "raw_description": "UPI/REF3271782991/SHARMATRADERS",
+    "reference_number": "REF3271782991",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0033",
+    "date": "2026-01-09",
+    "amount": "18822.41",
+    "raw_description": "IMPS/BIGBSK/PYMT",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0020",
+    "date": "2026-01-08",
+    "amount": "7315.01",
+    "raw_description": "NEFT/OMSAITEXTILES/SETTLEMENT",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0008",
+    "date": "2026-01-23",
+    "amount": "19120.38",
+    "raw_description": "UPI/REF8934927891/AMAZON",
+    "reference_number": "REF8934927891",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0021",
+    "date": "2026-02-18",
+    "amount": "27041.07",
+    "raw_description": "NEFT/CITYFRESHMART/SETTLEMENT",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0040",
+    "date": "2026-01-26",
+    "amount": "2167.55",
+    "raw_description": "UPI/FKRT@AXIS/838713541566",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0022",
+    "date": "2026-01-26",
+    "amount": "44911.58",
+    "raw_description": "NEFT/PRIMESTATIONERY/SETTLEMENT",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0051",
+    "date": "2026-01-03",
+    "amount": "3556.54",
+    "raw_description": "UPI/OLA/DUP",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0071",
+    "date": "2026-01-16",
+    "amount": "33825.59",
+    "raw_description": "UPI/REF2734202799/AMAZON",
+    "reference_number": "REF2734202799",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0060",
+    "date": "2026-01-22",
+    "amount": "20250.54",
+    "raw_description": "UPI/ZOMATO/LONE",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0024",
+    "date": "2026-01-03",
+    "amount": "4727.29",
+    "raw_description": "NEFT/VERTEXSOLUTIONS/SETTLEMENT",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0013",
+    "date": "2026-02-12",
+    "amount": "17892.48",
+    "raw_description": "UPI/REF3783290795/GLOBALSUPPLIESCO",
+    "reference_number": "REF3783290795",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0078",
+    "date": "2026-02-26",
+    "amount": "44067.04",
+    "raw_description": "UPI/REF6344160868/GLOBALSUPPLIESCO",
+    "reference_number": "REF6344160868",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0053",
+    "date": "2026-01-16",
+    "amount": "3728.7",
+    "raw_description": "UPI/KUMARENTERPRISES/DUP",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0048",
+    "date": "2026-01-16",
+    "amount": "12795.41",
+    "raw_description": "NEFT/SHARMATRADERS/PART2",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0047",
+    "date": "2026-01-15",
+    "amount": "12795.40",
+    "raw_description": "NEFT/SHARMATRADERS/PART1",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0044",
+    "date": "2026-01-05",
+    "amount": "4558.90",
+    "raw_description": "NEFT/KUMARENTERPRISES/PART1",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0035",
+    "date": "2026-01-16",
+    "amount": "794.41",
+    "raw_description": "UPI/BB@HDFC/726541280440",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0080",
+    "date": "2026-02-12",
+    "amount": "15109.06",
+    "raw_description": "UPI/REF4771526597/CITYFRESHMART",
+    "reference_number": "REF4771526597",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0072",
+    "date": "2026-02-08",
+    "amount": "12461.52",
+    "raw_description": "UPI/REF9760623742/APEXCONSULTANCY",
+    "reference_number": "REF9760623742",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0001",
+    "date": "2026-01-18",
+    "amount": "1445.54",
+    "raw_description": "UPI/REF2051802512/FLIPKART",
+    "reference_number": "REF2051802512",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0028",
+    "date": "2026-02-05",
+    "amount": "34150.68",
+    "raw_description": "IMPS/FLIPKR/PYMT",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0046",
+    "date": "2026-01-07",
+    "amount": "6078.53",
+    "raw_description": "NEFT/KUMARENTERPRISES/PART3",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0003",
+    "date": "2026-01-02",
+    "amount": "21211.71",
+    "raw_description": "UPI/REF1402418010/APEXCONSULTANCY",
+    "reference_number": "REF1402418010",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0017",
+    "date": "2026-02-21",
+    "amount": "41125.77",
+    "raw_description": "NEFT/OLA/SETTLEMENT",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0089",
+    "date": "2026-01-23",
+    "amount": "33413.28",
+    "raw_description": "UPI/REF4993808565/OLA",
+    "reference_number": "REF4993808565",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0050",
+    "date": "2026-02-11",
+    "amount": "3742.38",
+    "raw_description": "NEFT/SHARMATRADERS/PART2",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0076",
+    "date": "2026-02-06",
+    "amount": "23022.62",
+    "raw_description": "UPI/REF5278201677/SWIGGY",
+    "reference_number": "REF5278201677",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0082",
+    "date": "2026-02-15",
+    "amount": "30320.53",
+    "raw_description": "UPI/REF2472659626/SHARMATRADERS",
+    "reference_number": "REF2472659626",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0069",
+    "date": "2026-01-31",
+    "amount": "2697.09",
+    "raw_description": "UPI/REF1676168421/ZOMATO",
+    "reference_number": "REF1676168421",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0041",
+    "date": "2026-02-03",
+    "amount": "6777.83",
+    "raw_description": "NEFT/OMSAITEXTILES/PART1",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0090",
+    "date": "2026-02-21",
+    "amount": "48815.06",
+    "raw_description": "UPI/REF2770791023/BLINKIT",
+    "reference_number": "REF2770791023",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0056",
+    "date": "2026-01-14",
+    "amount": "33515.09",
+    "raw_description": "UPI/UBER/DUP",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0014",
+    "date": "2026-01-16",
+    "amount": "26800.17",
+    "raw_description": "UPI/REF5996775663/BLINKIT",
+    "reference_number": "REF5996775663",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0005",
+    "date": "2026-01-29",
+    "amount": "21092.09",
+    "raw_description": "UPI/REF7825844140/CITYFRESHMART",
+    "reference_number": "REF7825844140",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0075",
+    "date": "2026-02-18",
+    "amount": "15945.62",
+    "raw_description": "UPI/REF5018948187/OMSAITEXTILES",
+    "reference_number": "REF5018948187",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0073",
+    "date": "2026-02-07",
+    "amount": "21077.4",
+    "raw_description": "UPI/REF2119980130/AMAZON",
+    "reference_number": "REF2119980130",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0023",
+    "date": "2026-01-10",
+    "amount": "49866.82",
+    "raw_description": "NEFT/OLA/SETTLEMENT",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0034",
+    "date": "2026-01-08",
+    "amount": "1516.96",
+    "raw_description": "UPI/BLINKIT@KOTAK/499127439409",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0015",
+    "date": "2026-03-01",
+    "amount": "13643.4",
+    "raw_description": "UPI/REF3392080953/METROLOGISTICS",
+    "reference_number": "REF3392080953",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0091",
+    "date": "2026-01-22",
+    "amount": "36880.91",
+    "raw_description": "UPI/REF6360837474/BLINKIT",
+    "reference_number": "REF6360837474",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0087",
+    "date": "2026-02-26",
+    "amount": "3947.14",
+    "raw_description": "UPI/REF3373077218/FLIPKART",
+    "reference_number": "REF3373077218",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0067",
+    "date": "2026-01-14",
+    "amount": "9656.91",
+    "raw_description": "UPI/REF5160575046/BIGBASKET",
+    "reference_number": "REF5160575046",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0088",
+    "date": "2026-01-20",
+    "amount": "6546.79",
+    "raw_description": "UPI/REF2536778950/PRIMESTATIONERY",
+    "reference_number": "REF2536778950",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN_BAD2",
+    "date": "not-a-date",
+    "amount": "500.00",
+    "raw_description": "UPI/BADDATE",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0081",
+    "date": "2026-01-07",
+    "amount": "5948.35",
+    "raw_description": "UPI/REF5962610986/UBER",
+    "reference_number": "REF5962610986",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0045",
+    "date": "2026-01-06",
+    "amount": "3039.27",
+    "raw_description": "NEFT/KUMARENTERPRISES/PART2",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0086",
+    "date": "2026-01-28",
+    "amount": "27673.68",
+    "raw_description": "UPI/REF3409076656/OMSAITEXTILES",
+    "reference_number": "REF3409076656",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0009",
+    "date": "2026-02-16",
+    "amount": "40394.99",
+    "raw_description": "UPI/REF9256195745/UBER",
+    "reference_number": "REF9256195745",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0036",
+    "date": "2026-02-01",
+    "amount": "348.4",
+    "raw_description": "UPI/ZMTO@PAYTM/176519237216",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0043",
+    "date": "2026-02-05",
+    "amount": "9037.11",
+    "raw_description": "NEFT/OMSAITEXTILES/PART3",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0052",
+    "date": "2026-01-03",
+    "amount": "3556.54",
+    "raw_description": "UPI/OLA/DUP",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0025",
+    "date": "2026-02-21",
+    "amount": "31446.81",
+    "raw_description": "NEFT/BIGBASKET/SETTLEMENT",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0083",
+    "date": "2026-01-17",
+    "amount": "25369.37",
+    "raw_description": "UPI/REF4633987776/UBER",
+    "reference_number": "REF4633987776",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0004",
+    "date": "2026-01-02",
+    "amount": "25366.69",
+    "raw_description": "UPI/REF3410529190/OLA",
+    "reference_number": "REF3410529190",
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0029",
+    "date": "2026-01-27",
+    "amount": "5756.80",
+    "raw_description": "IMPS/KUMREN/PYMT",
+    "reference_number": null,
+    "debit_credit": "debit"
+  },
+  {
+    "txn_id": "TXN0030",
+    "date": "2026-02-17",
+    "amount": "363.12",
+    "raw_description": "IMPS/OMSITE/PYMT",
+    "reference_number": null,
+    "debit_credit": "debit"
+  }
+]

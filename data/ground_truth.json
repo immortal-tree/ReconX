@@ -1,0 +1,604 @@
+[
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0001",
+    "invoice_id": "INV0001",
+    "gateway_payment_id": "PAY0001"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0002",
+    "invoice_id": "INV0002",
+    "gateway_payment_id": "PAY0002"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0003",
+    "invoice_id": "INV0003",
+    "gateway_payment_id": "PAY0003"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0004",
+    "invoice_id": "INV0004",
+    "gateway_payment_id": "PAY0004"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0005",
+    "invoice_id": "INV0005",
+    "gateway_payment_id": "PAY0005"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0006",
+    "invoice_id": "INV0006",
+    "gateway_payment_id": "PAY0006"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0007",
+    "invoice_id": "INV0007",
+    "gateway_payment_id": "PAY0007"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0008",
+    "invoice_id": "INV0008",
+    "gateway_payment_id": "PAY0008"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0009",
+    "invoice_id": "INV0009",
+    "gateway_payment_id": "PAY0009"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0010",
+    "invoice_id": "INV0010",
+    "gateway_payment_id": "PAY0010"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0011",
+    "invoice_id": "INV0011",
+    "gateway_payment_id": "PAY0011"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0012",
+    "invoice_id": "INV0012",
+    "gateway_payment_id": "PAY0012"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0013",
+    "invoice_id": "INV0013",
+    "gateway_payment_id": "PAY0013"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0014",
+    "invoice_id": "INV0014",
+    "gateway_payment_id": "PAY0014"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0015",
+    "invoice_id": "INV0015",
+    "gateway_payment_id": "PAY0015"
+  },
+  {
+    "scenario": "amount_date_only",
+    "exception_type": null,
+    "bank_txn_id": "TXN0016",
+    "invoice_id": "INV0016"
+  },
+  {
+    "scenario": "amount_date_only",
+    "exception_type": null,
+    "bank_txn_id": "TXN0017",
+    "invoice_id": "INV0017"
+  },
+  {
+    "scenario": "amount_date_only",
+    "exception_type": null,
+    "bank_txn_id": "TXN0018",
+    "invoice_id": "INV0018"
+  },
+  {
+    "scenario": "amount_date_only",
+    "exception_type": null,
+    "bank_txn_id": "TXN0019",
+    "invoice_id": "INV0019"
+  },
+  {
+    "scenario": "amount_date_only",
+    "exception_type": null,
+    "bank_txn_id": "TXN0020",
+    "invoice_id": "INV0020"
+  },
+  {
+    "scenario": "amount_date_only",
+    "exception_type": null,
+    "bank_txn_id": "TXN0021",
+    "invoice_id": "INV0021"
+  },
+  {
+    "scenario": "amount_date_only",
+    "exception_type": null,
+    "bank_txn_id": "TXN0022",
+    "invoice_id": "INV0022"
+  },
+  {
+    "scenario": "amount_date_only",
+    "exception_type": null,
+    "bank_txn_id": "TXN0023",
+    "invoice_id": "INV0023"
+  },
+  {
+    "scenario": "amount_date_only",
+    "exception_type": null,
+    "bank_txn_id": "TXN0024",
+    "invoice_id": "INV0024"
+  },
+  {
+    "scenario": "amount_date_only",
+    "exception_type": null,
+    "bank_txn_id": "TXN0025",
+    "invoice_id": "INV0025"
+  },
+  {
+    "scenario": "composite_fuzzy",
+    "exception_type": null,
+    "bank_txn_id": "TXN0026",
+    "invoice_id": "INV0026"
+  },
+  {
+    "scenario": "composite_fuzzy",
+    "exception_type": null,
+    "bank_txn_id": "TXN0027",
+    "invoice_id": "INV0027"
+  },
+  {
+    "scenario": "composite_fuzzy",
+    "exception_type": null,
+    "bank_txn_id": "TXN0028",
+    "invoice_id": "INV0028"
+  },
+  {
+    "scenario": "composite_fuzzy",
+    "exception_type": null,
+    "bank_txn_id": "TXN0029",
+    "invoice_id": "INV0029"
+  },
+  {
+    "scenario": "composite_fuzzy",
+    "exception_type": null,
+    "bank_txn_id": "TXN0030",
+    "invoice_id": "INV0030"
+  },
+  {
+    "scenario": "composite_fuzzy",
+    "exception_type": null,
+    "bank_txn_id": "TXN0031",
+    "invoice_id": "INV0031"
+  },
+  {
+    "scenario": "composite_fuzzy",
+    "exception_type": null,
+    "bank_txn_id": "TXN0032",
+    "invoice_id": "INV0032"
+  },
+  {
+    "scenario": "composite_fuzzy",
+    "exception_type": null,
+    "bank_txn_id": "TXN0033",
+    "invoice_id": "INV0033"
+  },
+  {
+    "scenario": "cryptic_upi",
+    "exception_type": null,
+    "bank_txn_id": "TXN0034",
+    "invoice_id": "INV0034"
+  },
+  {
+    "scenario": "cryptic_upi",
+    "exception_type": null,
+    "bank_txn_id": "TXN0035",
+    "invoice_id": "INV0035"
+  },
+  {
+    "scenario": "cryptic_upi",
+    "exception_type": null,
+    "bank_txn_id": "TXN0036",
+    "invoice_id": "INV0036"
+  },
+  {
+    "scenario": "cryptic_upi",
+    "exception_type": null,
+    "bank_txn_id": "TXN0037",
+    "invoice_id": "INV0037"
+  },
+  {
+    "scenario": "cryptic_upi",
+    "exception_type": null,
+    "bank_txn_id": "TXN0038",
+    "invoice_id": "INV0038"
+  },
+  {
+    "scenario": "cryptic_upi",
+    "exception_type": null,
+    "bank_txn_id": "TXN0039",
+    "invoice_id": "INV0039"
+  },
+  {
+    "scenario": "cryptic_upi",
+    "exception_type": null,
+    "bank_txn_id": "TXN0040",
+    "invoice_id": "INV0040"
+  },
+  {
+    "scenario": "split_payment",
+    "exception_type": null,
+    "bank_txn_ids": [
+      "TXN0041",
+      "TXN0042",
+      "TXN0043"
+    ],
+    "invoice_id": "INV0041"
+  },
+  {
+    "scenario": "split_payment",
+    "exception_type": null,
+    "bank_txn_ids": [
+      "TXN0044",
+      "TXN0045",
+      "TXN0046"
+    ],
+    "invoice_id": "INV0042"
+  },
+  {
+    "scenario": "split_payment",
+    "exception_type": null,
+    "bank_txn_ids": [
+      "TXN0047",
+      "TXN0048"
+    ],
+    "invoice_id": "INV0043"
+  },
+  {
+    "scenario": "split_payment",
+    "exception_type": null,
+    "bank_txn_ids": [
+      "TXN0049",
+      "TXN0050"
+    ],
+    "invoice_id": "INV0044"
+  },
+  {
+    "scenario": "duplicate",
+    "exception_type": "DUPLICATE",
+    "bank_txn_ids": [
+      "TXN0051",
+      "TXN0052"
+    ]
+  },
+  {
+    "scenario": "duplicate",
+    "exception_type": "DUPLICATE",
+    "bank_txn_ids": [
+      "TXN0053",
+      "TXN0054"
+    ]
+  },
+  {
+    "scenario": "duplicate",
+    "exception_type": "DUPLICATE",
+    "bank_txn_ids": [
+      "TXN0055",
+      "TXN0056"
+    ]
+  },
+  {
+    "scenario": "duplicate",
+    "exception_type": "DUPLICATE",
+    "bank_txn_ids": [
+      "TXN0057",
+      "TXN0058"
+    ]
+  },
+  {
+    "scenario": "missing_counterpart",
+    "exception_type": "MISSING_COUNTERPART",
+    "invoice_id": "INV0045"
+  },
+  {
+    "scenario": "missing_counterpart",
+    "exception_type": "MISSING_COUNTERPART",
+    "gateway_payment_id": "PAY0016"
+  },
+  {
+    "scenario": "missing_counterpart",
+    "exception_type": "MISSING_COUNTERPART",
+    "invoice_id": "INV0046"
+  },
+  {
+    "scenario": "missing_counterpart",
+    "exception_type": "MISSING_COUNTERPART",
+    "bank_txn_id": "TXN0059"
+  },
+  {
+    "scenario": "missing_counterpart",
+    "exception_type": "MISSING_COUNTERPART",
+    "bank_txn_id": "TXN0060"
+  },
+  {
+    "scenario": "missing_counterpart",
+    "exception_type": "MISSING_COUNTERPART",
+    "invoice_id": "INV0047"
+  },
+  {
+    "scenario": "missing_counterpart",
+    "exception_type": "MISSING_COUNTERPART",
+    "invoice_id": "INV0048"
+  },
+  {
+    "scenario": "missing_counterpart",
+    "exception_type": "MISSING_COUNTERPART",
+    "invoice_id": "INV0049"
+  },
+  {
+    "scenario": "amount_mismatch",
+    "exception_type": "AMOUNT_MISMATCH",
+    "bank_txn_id": "TXN0061",
+    "invoice_id": "INV0050"
+  },
+  {
+    "scenario": "amount_mismatch",
+    "exception_type": "AMOUNT_MISMATCH",
+    "bank_txn_id": "TXN0062",
+    "invoice_id": "INV0051"
+  },
+  {
+    "scenario": "amount_mismatch",
+    "exception_type": "AMOUNT_MISMATCH",
+    "bank_txn_id": "TXN0063",
+    "invoice_id": "INV0052"
+  },
+  {
+    "scenario": "amount_mismatch",
+    "exception_type": "AMOUNT_MISMATCH",
+    "bank_txn_id": "TXN0064",
+    "invoice_id": "INV0053"
+  },
+  {
+    "scenario": "malformed",
+    "exception_type": null,
+    "bank_txn_id": "TXN_BAD1"
+  },
+  {
+    "scenario": "malformed",
+    "exception_type": null,
+    "bank_txn_id": "TXN_BAD2"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0065",
+    "invoice_id": "INV0054",
+    "gateway_payment_id": "PAY0017"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0066",
+    "invoice_id": "INV0055",
+    "gateway_payment_id": "PAY0018"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0067",
+    "invoice_id": "INV0056",
+    "gateway_payment_id": "PAY0019"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0068",
+    "invoice_id": "INV0057",
+    "gateway_payment_id": "PAY0020"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0069",
+    "invoice_id": "INV0058",
+    "gateway_payment_id": "PAY0021"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0070",
+    "invoice_id": "INV0059",
+    "gateway_payment_id": "PAY0022"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0071",
+    "invoice_id": "INV0060",
+    "gateway_payment_id": "PAY0023"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0072",
+    "invoice_id": "INV0061",
+    "gateway_payment_id": "PAY0024"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0073",
+    "invoice_id": "INV0062",
+    "gateway_payment_id": "PAY0025"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0074",
+    "invoice_id": "INV0063",
+    "gateway_payment_id": "PAY0026"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0075",
+    "invoice_id": "INV0064",
+    "gateway_payment_id": "PAY0027"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0076",
+    "invoice_id": "INV0065",
+    "gateway_payment_id": "PAY0028"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0077",
+    "invoice_id": "INV0066",
+    "gateway_payment_id": "PAY0029"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0078",
+    "invoice_id": "INV0067",
+    "gateway_payment_id": "PAY0030"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0079",
+    "invoice_id": "INV0068",
+    "gateway_payment_id": "PAY0031"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0080",
+    "invoice_id": "INV0069",
+    "gateway_payment_id": "PAY0032"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0081",
+    "invoice_id": "INV0070",
+    "gateway_payment_id": "PAY0033"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0082",
+    "invoice_id": "INV0071",
+    "gateway_payment_id": "PAY0034"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0083",
+    "invoice_id": "INV0072",
+    "gateway_payment_id": "PAY0035"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0084",
+    "invoice_id": "INV0073",
+    "gateway_payment_id": "PAY0036"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0085",
+    "invoice_id": "INV0074",
+    "gateway_payment_id": "PAY0037"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0086",
+    "invoice_id": "INV0075",
+    "gateway_payment_id": "PAY0038"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0087",
+    "invoice_id": "INV0076",
+    "gateway_payment_id": "PAY0039"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0088",
+    "invoice_id": "INV0077",
+    "gateway_payment_id": "PAY0040"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0089",
+    "invoice_id": "INV0078",
+    "gateway_payment_id": "PAY0041"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0090",
+    "invoice_id": "INV0079",
+    "gateway_payment_id": "PAY0042"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0091",
+    "invoice_id": "INV0080",
+    "gateway_payment_id": "PAY0043"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0092",
+    "invoice_id": "INV0081",
+    "gateway_payment_id": "PAY0044"
+  },
+  {
+    "scenario": "clean_3way",
+    "exception_type": null,
+    "bank_txn_id": "TXN0093",
+    "invoice_id": "INV0082",
+    "gateway_payment_id": "PAY0045"
+  }
+]
