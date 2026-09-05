@@ -36,6 +36,12 @@ class LLMClient:
         self._client = None
         self.available = False
 
+        try:
+            from dotenv import load_dotenv
+            load_dotenv()
+        except ImportError:
+            pass
+
         api_key = os.environ.get("GROQ_API_KEY")
         if api_key and Groq is not None:
             try:
