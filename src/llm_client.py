@@ -1,6 +1,7 @@
 """
-src/llm_client.py - thin wrapper around the Anthropic API for the
-reconciliation agent's AI-assisted matching and exception explanation tasks.
+src/llm_client.py - thin wrapper around the Groq API (free tier, no credit
+card required) for the reconciliation agent's AI-assisted matching and
+exception explanation tasks.
 
 Design note: every call site in this project checks `LLMClient.available`
 first and has a deterministic/template fallback, so the pipeline runs
@@ -14,12 +15,20 @@ from __future__ import annotations
 import json
 import os
 import time
-from typing import Optional
+from typing import Optional, Any
+
+try:
+    from groq import Groq
+except ImportError:
+    Groq = None  # library not installed - stays unavailable, same as a missing key
 
 
 class LLMClient:
-    def __init__(self, model: str = "claude-sonnet-4-6"):
-        self.model = model
+    """
+    Thin wrapper over Groq API with rate limiting, logging, and automatic fallback.
+    """
+    def __init__(self, model: Optional[str] = None):
+        self.model = model or os.environ.get("GROQ_MODEL", "openai/gpt-oss-120b")
         self.call_count = 0
         self.total_input_tokens = 0
         self.total_output_tokens = 0
@@ -27,13 +36,12 @@ class LLMClient:
         self._client = None
         self.available = False
 
-        api_key = os.environ.get("ANTHROPIC_API_KEY")
-        if api_key:
+        api_key = os.environ.get("GROQ_API_KEY")
+        if api_key and Groq is not None:
             try:
-                import anthropic
-                self._client = anthropic.Anthropic(api_key=api_key)
+                self._client = Groq(api_key=api_key)
                 self.available = True
-            except ImportError:
+            except Exception:
                 self.available = False
 
     def call(self, system_prompt: str, user_prompt: str, max_tokens: int = 1024) -> Optional[dict]:
@@ -43,28 +51,32 @@ class LLMClient:
         if not self.available:
             return None
 
-        import anthropic
-
         start = time.perf_counter()
         for attempt in range(3):
             try:
-                response = self._client.messages.create(
+                response = self._client.chat.completions.create(
                     model=self.model,
                     max_tokens=max_tokens,
-                    system=system_prompt,
-                    messages=[{"role": "user", "content": user_prompt}],
+                    messages=[
+                        {"role": "system", "content": system_prompt},
+                        {"role": "user", "content": user_prompt},
+                    ],
+                    response_format={"type": "json_object"},
                 )
                 elapsed = time.perf_counter() - start
                 self.call_count += 1
-                self.total_input_tokens += response.usage.input_tokens
-                self.total_output_tokens += response.usage.output_tokens
+                usage = response.usage
+                in_tok = getattr(usage, "prompt_tokens", 0) or 0
+                out_tok = getattr(usage, "completion_tokens", 0) or 0
+                self.total_input_tokens += in_tok
+                self.total_output_tokens += out_tok
                 self.call_log.append({
                     "task": system_prompt[:50],
                     "latency_s": round(elapsed, 2),
-                    "input_tokens": response.usage.input_tokens,
-                    "output_tokens": response.usage.output_tokens,
+                    "input_tokens": in_tok,
+                    "output_tokens": out_tok,
                 })
-                text = response.content[0].text
+                text = response.choices[0].message.content
                 try:
                     return json.loads(text)
                 except json.JSONDecodeError:
@@ -73,7 +85,7 @@ class LLMClient:
                         return json.loads(cleaned)
                     except json.JSONDecodeError:
                         return {"raw_text": text, "parse_error": True}
-            except anthropic.APIError:
+            except Exception:
                 if attempt < 2:
                     time.sleep(2 ** attempt)
                     continue

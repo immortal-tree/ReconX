@@ -17,12 +17,12 @@ Built for Razorpay's AI Buildathon 2026, Track 04 - AI Finance Controller.
 | F1 | 0.965 | >= 0.85 |
 | Exception surfacing | 100% (0 silent drops) | 100% |
 | Pipeline execution time | <1s for 216 records | <60s for ~180 |
-| LLM calls (with API key) | ~16 Claude / batch | <30 |
+| LLM calls (with API key) | ~16 Groq / batch | <30 |
 
 These numbers hold even with **zero API keys configured** — every AI-assisted
 step has a deterministic or template fallback (static UPI alias map, combo-sum
 split detection, template exception explanations). Configuring
-`ANTHROPIC_API_KEY` improves coverage on the hardest fuzzy-name and ambiguous
+`GROQ_API_KEY` improves coverage on the hardest fuzzy-name and ambiguous
 cases but isn't required for the pipeline to run correctly.
 
 ## Setup
@@ -34,7 +34,7 @@ pip install -r requirements.txt
 # Optional - enables live LLM calls for cryptic UPI parsing, split-payment
 # detection, and richer exception explanations. Without this, the pipeline
 # still runs using deterministic fallbacks.
-export ANTHROPIC_API_KEY="sk-ant-..."
+export GROQ_API_KEY="gsk_..."
 ```
 
 ## Usage
@@ -63,7 +63,7 @@ Output:
    exact reference ID → amount+date (±1 day) → composite key (amount ±₹2,
    name prefix, date ±2 days). Enforces 1:1 matching.
 3. **AI-Assisted Matching** (`src/ai_matcher.py`) - RapidFuzz fuzzy names
-   (local, free), Claude for cryptic UPI IDs and split-payment detection
+   (local, free), LLM via Groq for cryptic UPI IDs and split-payment detection
    (both with deterministic fallbacks), confidence scoring.
 4. **Exception Handling** (`src/exception_handler.py`) - Classifies every
    remaining record as DUPLICATE / MISSING_COUNTERPART / PARTIAL_MATCH /
@@ -84,7 +84,7 @@ ai-finance-controller/
 │   ├── ingestion.py              # Layer 1
 │   ├── deterministic_matcher.py  # Layer 2
 │   ├── ai_matcher.py             # Layer 3
-│   ├── llm_client.py             # Anthropic API wrapper
+│   ├── llm_client.py             # Groq API wrapper
 │   ├── exception_handler.py      # Layer 4
 │   └── reporter.py               # Layer 5
 ├── data/                        # generated synthetic data + ground truth
