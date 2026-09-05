@@ -44,7 +44,8 @@ class LLMClient:
 
         api_key = os.environ.get("GROQ_API_KEY", "").strip()
         # Ignore empty or placeholder keys
-        if api_key and not api_key.startswith("gsk_...") and "your_actual" not in api_key and Groq is not None:
+        is_placeholder = api_key in ("gsk_...", "gsk_your_actual_groq_api_key_here") or "your_actual" in api_key or api_key.endswith("...")
+        if api_key and not is_placeholder and Groq is not None:
             try:
                 self._client = Groq(api_key=api_key)
                 self.available = True
