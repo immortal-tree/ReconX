@@ -28,7 +28,7 @@ class LLMClient:
     Thin wrapper over Groq API with rate limiting, logging, and automatic fallback.
     """
     def __init__(self, model: Optional[str] = None):
-        self.model = model or os.environ.get("GROQ_MODEL", "llama-3.3-70b-versatile")
+        self.model = model or os.environ.get("GROQ_MODEL", "openai/gpt-oss-120b")
         self.call_count = 0
         self.total_input_tokens = 0
         self.total_output_tokens = 0
