@@ -28,7 +28,7 @@ class LLMClient:
     Thin wrapper over Groq API with rate limiting, logging, and automatic fallback.
     """
     def __init__(self, model: Optional[str] = None):
-        self.model = model or os.environ.get("GROQ_MODEL", "openai/gpt-oss-120b")
+        self.model = model or os.environ.get("GROQ_MODEL", "llama-3.3-70b-versatile")
         self.call_count = 0
         self.total_input_tokens = 0
         self.total_output_tokens = 0
@@ -42,8 +42,9 @@ class LLMClient:
         except ImportError:
             pass
 
-        api_key = os.environ.get("GROQ_API_KEY")
-        if api_key and Groq is not None:
+        api_key = os.environ.get("GROQ_API_KEY", "").strip()
+        # Ignore empty or placeholder keys
+        if api_key and not api_key.startswith("gsk_...") and "your_actual" not in api_key and Groq is not None:
             try:
                 self._client = Groq(api_key=api_key)
                 self.available = True
@@ -91,7 +92,13 @@ class LLMClient:
                         return json.loads(cleaned)
                     except json.JSONDecodeError:
                         return {"raw_text": text, "parse_error": True}
-            except Exception:
+            except Exception as e:
+                err_msg = str(e).lower()
+                # If authentication fails or invalid API key, mark unavailable immediately to prevent hanging retries
+                if "invalid_api_key" in err_msg or "401" in err_msg or "authentication" in err_msg:
+                    self.available = False
+                    return None
+
                 if attempt < 2:
                     time.sleep(2 ** attempt)
                     continue
